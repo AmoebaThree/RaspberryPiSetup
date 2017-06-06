@@ -53,7 +53,7 @@
 - Turn off wlan0: `sudo ifdown wlan0`
 
 - Put the contents of `client.interfaces` in `/etc/network/interfaces`
-- Replace the two #'s with the SSID and passphrase for your robot's network
+- Replace the two #'s with the SSID and passphrase for your robot's network, and also its static IP
 
 - Reboot machine
 
