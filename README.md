@@ -77,7 +77,19 @@ The Pirocon board has an annoying habit of driving the wheels on if connected at
 
 # Software
 
-### Install mono
+### Share folders
+
+- `sudo apt-get install samba samba-common-bin`
+- `mkdir code`
+- `chmod 777 code`
+- `sudo smbpasswd -a pi` and add the password
+- Put the contents of `smb.conf` at the bottom of `/etc/samba/smb.conf`
+- Also in that file, comment out the bit about "homes" - this is spread over quite a few lines
+- Restart with `sudo /etc/init.d/samba restart`
+
+[Example](http://raspberrypihq.com/how-to-share-a-folder-with-a-windows-computer-from-a-raspberry-pi/)
+
+### Mono
 
 ### Redis
 
