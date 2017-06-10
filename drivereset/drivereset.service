@@ -1,0 +1,9 @@
+[Unit]
+Description=Reset PiRoCon
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/drivereset/drivereset.sh
+
+[Install]
+WantedBy=multi-user.target
