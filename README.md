@@ -79,3 +79,15 @@ The Pirocon board has an annoying habit of driving the wheels on if connected at
 
 ### Install mono
 
+### Redis
+
+On the host server:
+
+- `sudo apt-get install redis-server`
+- `sudo vim /etc/redis/redis.conf`
+- In this file, set the "bind" directive to include `192.168.0.1`
+- `sudo service redis-server restart`
+
+On any clients you want to try the CLI with:
+
+- `sudo apt-get install redis-tools`
