@@ -7,6 +7,7 @@
 - Mount the card and create an empty file called "ssh" in the root (included in repo for Windows) - this enables SSH on first boot (see [here](https://www.raspberrypi.org/documentation/remote-access/ssh/))
 
 [Source docs](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
+
 [Other options](https://www.raspberrypi.org/documentation/installation/installing-images/windows.md)
 
 # First boot
@@ -15,11 +16,7 @@
 - Change the password - `passwd` and follow instructions
 - Enable SSH permanently - `sudo raspi-config` and in the menu ([details](http://www.raspberrypi-spy.co.uk/2012/05/enable-secure-shell-ssh-on-your-raspberry-pi/))
 - `sudo apt-get update`
-- `sudo apt-get remove wolfram-engine`
 - `sudo apt-get install vim`
-- `sudo apt-get upgrade`
-- `sudo apt-get dist-upgrade`
-- `sudo apt-get autoclean`
 - `sudo apt-get clean`
 
 [Source docs](https://www.raspberrypi.org/documentation/linux/usage/users.md)
@@ -28,31 +25,47 @@
 
 ### Host
 
-- Run `ifconfig` to check you have wlan0 and wlan1
 - Turn off wlan0: `sudo ifdown wlan0`
 - Turn off wlan1: `sudo ifdown wlan1`
 
 - Edit `/etc/sysctl.conf` and add `net.ipv4.ip_forward=1`
-- Put the contents of `iptables.ipv4.nat` in `/etc/iptables/ipv4.nat`
+- `sudo apt-get install iptables`
+- Put the contents of `networking/host/iptables.ipv4.nat` in `/etc/iptables/ipv4.nat`
 
-- Put the contents of `host.interfaces` in `/etc/network/interfaces`
-- Replace the two #'s with the SSID and passphrase for your passthrough network
+- Put the contents of `networking/host/wlan0` in `/etc/network/interfaces.d/wlan0`
+- Put the contents of `networking/host/wlan1` in `/etc/network/interfaces.d/wlan1`
+- Put the contents of `networking/host/general` in `/etc/network/interfaces.d/general`
+- **Append** the contents of `networking/host/dhcpcd.conf` to `/etc/dhcpcd.conf`
+- `networking/host/wpa_supplicant-wlan0.conf` provides an example of how to specify wifi networks to connect to in `/etc/wpa_supplicant/wpa_supplicant-wlan0.conf`
+
+- Install DHCP server: `sudo apt-get install isc-dhcp-server`
+- Put contents of `networking/host/dhcpd.conf` in `/etc/dhcp/dhcpd.conf`
+- Edit `/etc/default/isc-dhcp-server` and set INTERFACES="wlan0"
 
 - Install the AP server: `sudo apt-get install hostapd`
-- Put the contents of hostapd.conf in `/etc/hostapd/hostapd.conf`
+- Put the contents of `networking/host/hostapd.conf` in `/etc/hostapd/hostapd.conf`
 - Change the # for the passphrase for the network
 - Edit `/etc/default/hostapd` and point DAEMON_CONF to `/etc/hostapd/hostapd.conf`
+- For some reason the service is masked in later raspbians:
+`sudo systemctl unmask hostapd`
+`sudo systemctl enable hostapd`
+`sudo systemctl start hostapd`
 
 - Reboot machine
 
 [Partial guide](https://learn.adafruit.com/setting-up-a-raspberry-pi-as-a-wifi-access-point/install-software)
+
+[More](https://raspberrypihq.com/how-to-turn-a-raspberry-pi-into-a-wifi-router/)
+
+[Angry, but helpful](https://tech.scargill.net/pi-zero-wi-fi-automatic-reconnect/)
 
 ### Client
 
 - Run `ifconfig` to check you have wlan0
 - Turn off wlan0: `sudo ifdown wlan0`
 
-- Put the contents of `client.interfaces` in `/etc/network/interfaces`
+- Put the contents of `networking/client/wlan0` in `/etc/network/interfaces.d/wlan0`
+- Put the contents of `networking/client/general` in `/etc/network/interfaces.d/general`
 - Replace the two #'s with the SSID and passphrase for your robot's network, and also its static IP number
 
 - Reboot machine
