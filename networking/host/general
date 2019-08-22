@@ -2,5 +2,3 @@ auto lo
 
 iface lo inet loopback
 iface eth0 inet dhcp
-
-up iptables-restore < /etc/iptables.ipv4.nat

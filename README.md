@@ -25,22 +25,16 @@
 
 ### Host
 
-- Turn off wlan0: `sudo ifdown wlan0`
-- Turn off wlan1: `sudo ifdown wlan1`
-
-- Edit `/etc/sysctl.conf` and add `net.ipv4.ip_forward=1`
-- `sudo apt-get install iptables`
-- Put the contents of `networking/host/iptables.ipv4.nat` in `/etc/iptables/ipv4.nat`
-
+- Put the contents of `networking/host/iptables.conf` in `/etc/iptables.conf`
 - Put the contents of `networking/host/wlan0` in `/etc/network/interfaces.d/wlan0`
 - Put the contents of `networking/host/wlan1` in `/etc/network/interfaces.d/wlan1`
 - Put the contents of `networking/host/general` in `/etc/network/interfaces.d/general`
 - **Append** the contents of `networking/host/dhcpcd.conf` to `/etc/dhcpcd.conf`
-- `networking/host/wpa_supplicant-wlan0.conf` provides an example of how to specify wifi networks to connect to in `/etc/wpa_supplicant/wpa_supplicant-wlan0.conf`
+- `networking/host/wpa_supplicant-wlan1.conf` provides an example of how to specify wifi networks to connect to in `/etc/wpa_supplicant/wpa_supplicant-wlan1.conf`
 
 - Install DHCP server: `sudo apt-get install isc-dhcp-server`
 - Put contents of `networking/host/dhcpd.conf` in `/etc/dhcp/dhcpd.conf`
-- Edit `/etc/default/isc-dhcp-server` and set INTERFACES="wlan0"
+- Edit `/etc/default/isc-dhcp-server` and set INTERFACESv4="wlan0" and INTERFACESv6="wlan0"
 
 - Install the AP server: `sudo apt-get install hostapd`
 - Put the contents of `networking/host/hostapd.conf` in `/etc/hostapd/hostapd.conf`
@@ -51,7 +45,7 @@
 `sudo systemctl enable hostapd`
 `sudo systemctl start hostapd`
 
-- Reboot machine
+- Reboot machine: `sudo shutdown -r now`
 
 [Partial guide](https://learn.adafruit.com/setting-up-a-raspberry-pi-as-a-wifi-access-point/install-software)
 
@@ -59,16 +53,16 @@
 
 [Angry, but helpful](https://tech.scargill.net/pi-zero-wi-fi-automatic-reconnect/)
 
+[Probably the best docs](https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md)
+
 ### Client
 
 - Run `ifconfig` to check you have wlan0
-- Turn off wlan0: `sudo ifdown wlan0`
-
 - Put the contents of `networking/client/wlan0` in `/etc/network/interfaces.d/wlan0`
 - Put the contents of `networking/client/general` in `/etc/network/interfaces.d/general`
 - Replace the two #'s with the SSID and passphrase for your robot's network, and also its static IP number
 
-- Reboot machine
+- Reboot machine: `sudo shutdown -r now`
 
 # Hardware
 
