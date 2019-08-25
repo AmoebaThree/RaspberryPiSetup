@@ -1,7 +1,7 @@
 # Image
 
 - Download Raspbian image, no need to unzip - [image download page](https://www.raspberrypi.org/downloads/)
-- Download Etcher - [site](https://etcher.io/)
+- Download Etcher - [site](https://www.balena.io/etcher/)
 - Plug in SD card
 - Etch the zip file directly to the SD card
 - Mount the card and create an empty file called "ssh" in the root (included in repo for Windows) - this enables SSH on first boot (see [here](https://www.raspberrypi.org/documentation/remote-access/ssh/))
@@ -14,10 +14,13 @@
 
 - Plug into ethernet and SSH as user `pi` password `raspberry`
 - Change the password - `passwd` and follow instructions
+- Change the hostname to something sensible - `sudo raspi-config` in the networking menu
 - Enable SSH permanently - `sudo raspi-config` and in the menu ([details](http://www.raspberrypi-spy.co.uk/2012/05/enable-secure-shell-ssh-on-your-raspberry-pi/))
+
+Once networking setup, or if ethernet in
 - `sudo apt-get update`
 - `sudo apt-get install vim`
-- `sudo apt-get clean`
+- `sudo apt-get autoclean`
 
 [Source docs](https://www.raspberrypi.org/documentation/linux/usage/users.md)
 
@@ -61,6 +64,7 @@
 - Put the contents of `networking/client/wlan0` in `/etc/network/interfaces.d/wlan0`
 - Put the contents of `networking/client/general` in `/etc/network/interfaces.d/general`
 - Replace the two #'s with the SSID and passphrase for your robot's network, and also its static IP number
+- **Append** the contents of `networking/host/dhcpcd.conf` to `/etc/dhcpcd.conf`
 
 - Reboot machine: `sudo shutdown -r now`
 
@@ -82,6 +86,8 @@ The Pirocon board has an annoying habit of driving the wheels on if connected at
 
 # SSH
 
+- Enable with `sudo raspi-config` in the networking section
+
 # Software
 
 ### Share folders
@@ -95,8 +101,6 @@ The Pirocon board has an annoying habit of driving the wheels on if connected at
 - Restart with `sudo /etc/init.d/samba restart`
 
 [Example](http://raspberrypihq.com/how-to-share-a-folder-with-a-windows-computer-from-a-raspberry-pi/)
-
-### Mono
 
 ### Redis
 
