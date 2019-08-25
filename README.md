@@ -1,7 +1,7 @@
 # Image
 
 - Download Raspbian image, no need to unzip - [image download page](https://www.raspberrypi.org/downloads/)
-- Download Etcher - [site](https://www.balena.io/etcher/)
+- Download [Etcher](https://www.balena.io/etcher/)
 - Plug in SD card
 - Etch the zip file directly to the SD card
 - Mount the card and create an empty file called "ssh" in the root (included in repo for Windows) - this enables SSH on first boot (see [here](https://www.raspberrypi.org/documentation/remote-access/ssh/))
@@ -20,7 +20,7 @@
 Once networking setup, or if ethernet in
 - `sudo apt-get update`
 - `sudo apt-get install vim`
-- `sudo apt-get autoclean`
+- `sudo apt-get autoremove`
 
 [Source docs](https://www.raspberrypi.org/documentation/linux/usage/users.md)
 
@@ -84,11 +84,11 @@ The Pirocon board has an annoying habit of driving the wheels on if connected at
 - `systemctl daemon-reload`
 - `systemctl enable drivereset.service`
 
-# SSH
+# Software
+
+### SSH
 
 - Enable with `sudo raspi-config` in the networking section
-
-# Software
 
 ### Share folders
 
@@ -98,7 +98,7 @@ The Pirocon board has an annoying habit of driving the wheels on if connected at
 - `sudo smbpasswd -a pi` and add the password
 - Put the contents of `smb.conf` at the bottom of `/etc/samba/smb.conf`
 - Also in that file, comment out the bit about "homes" - this is spread over quite a few lines
-- Restart with `sudo /etc/init.d/samba restart`
+- Restart with `sudo systemctl restart smbd.service`
 
 [Example](http://raspberrypihq.com/how-to-share-a-folder-with-a-windows-computer-from-a-raspberry-pi/)
 
@@ -109,7 +109,7 @@ On the host server:
 - `sudo apt-get install redis-server`
 - `sudo vim /etc/redis/redis.conf`
 - In this file, set the "bind" directive to include `192.168.0.1`
-- `sudo service redis-server restart`
+- `sudo systemctl restart redis-server.service`
 
 On any clients you want to try the CLI with:
 
