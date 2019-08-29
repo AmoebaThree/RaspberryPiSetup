@@ -72,17 +72,18 @@ Once networking setup, or if ethernet in
 
 ### Drive reset for initio
 
-The Pirocon board has an annoying habit of driving the wheels on if connected at boot.
+The Pirocon board has an annoying habit of driving the wheels on the first time it is powered on (restarting the Pi seems to be fine once the power is on).
 
-- `mkdir /usr/local/bin/drivereset`
-- Put the contents of the `drivereset` directory in there (except `drivereset.service`)
-- `cd /usr/local/bin/drivereset`
-- `sudo wget -q http://4tronix.co.uk/initio/servod.xxx -O servod`
-- `sudo chmod +x servod`
-- Put `drivereset/drivereset.service` in `/etc/systemd/system`
-- `sudo chmod 744 /usr/local/bin/drivereset/drivereset.sh`
-- `systemctl daemon-reload`
-- `systemctl enable drivereset.service`
+- `mkdir ~/code/drivereset`
+- Put the contents of the `drivereset` directory in there, except `drivereset.service`
+- `cd ~/code/drivereset`
+- `wget -q http://4tronix.co.uk/initio/servod.xxx -O servod`
+- `chmod +x servod`
+- Put `drivereset/drivereset.service` in `~/.config/systemd/user/`
+- `sudo loginctl enable-linger pi`
+- `systemctl --user enable drivereset.service`
+
+[Guide](https://github.com/torfsen/python-systemd-tutorial)
 
 # Software
 
