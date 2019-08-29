@@ -85,6 +85,15 @@ The Pirocon board has an annoying habit of driving the wheels on the first time 
 
 [Guide](https://github.com/torfsen/python-systemd-tutorial)
 
+### Infrared
+
+https://help.ubuntu.com/community/LIRC
+https://github.com/tompreston/python-lirc
+
+### Bluetooth
+
+https://ubuntuforums.org/showthread.php?t=1332197
+
 # Software
 
 ### SSH
