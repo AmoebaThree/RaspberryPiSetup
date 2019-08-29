@@ -63,12 +63,10 @@
 # Import all necessary libraries
 import RPi.GPIO as GPIO, sys, threading, time, os, subprocess
 
-# Pins 24, 26 Right Motor
-# Pins 19, 21 Left Motor
-R1 = 21
-R2 = 26
-L1 = 24
-L2 = 19
+R1 = 24
+R2 = 19
+L1 = 21
+L2 = 26
 
 # Define obstacle sensors and line sensors
 irFL = 7

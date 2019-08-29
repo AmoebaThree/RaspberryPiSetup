@@ -125,6 +125,14 @@ On any clients you want to try the CLI with:
 
 - `sudo apt-get install redis-tools`
 
+For any python clients:
+
+- `pip install redis`
+
+### Python
+
+- `sudo apt-get install python-pip`
+
 ### Creating a userspace python systemd service
 
 Template in the PythonService folder.
@@ -134,5 +142,6 @@ Template in the PythonService folder.
 - Make a symlink to the service file: `ln -s ~/code/PythonService/service.service ~/.config/systemd/user/service.service`
 - If you want to start it on boot, enable it with `systemctl --user enable service.service`
 - Otherwise you can just start it with `systemctl --user start service.service`
+- If you change the service file afterwards, you need to do `systemctl --user daemon-reload`
 
 Based on [this guide](https://github.com/torfsen/python-systemd-tutorial)
