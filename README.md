@@ -115,3 +115,14 @@ On the host server:
 On any clients you want to try the CLI with:
 
 - `sudo apt-get install redis-tools`
+
+### Creating a userspace python systemd service
+
+Template in the PythonService folder.
+
+- Copy the whole folder to /home/pi/code/FolderName
+- Make a symlink to the service file: `ln -s ~/code/PythonService/service.service ~/.config/systemd/user/service.service`
+- If you want to start it on boot, enable it with `systemctl --user enable service.service`
+- Otherwise you can just start it with `systemctl --user start service.service`
+
+Based on [this guide](https://github.com/torfsen/python-systemd-tutorial)
