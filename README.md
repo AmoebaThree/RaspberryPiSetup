@@ -129,6 +129,7 @@ On any clients you want to try the CLI with:
 
 Template in the PythonService folder.
 
+- `sudo apt-get install python-systemd`
 - Copy the whole folder to /home/pi/code/FolderName
 - Make a symlink to the service file: `ln -s ~/code/PythonService/service.service ~/.config/systemd/user/service.service`
 - If you want to start it on boot, enable it with `systemctl --user enable service.service`

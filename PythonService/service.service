@@ -5,6 +5,7 @@ Description=Demo
 ExecStart=/usr/bin/python /home/pi/code/PythonService/service.py
 Environment=PYTHONUNBUFFERED=1
 Restart=on-failure
+Type=notify
 
 [Install]
 WantedBy=default.target
