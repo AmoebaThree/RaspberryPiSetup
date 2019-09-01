@@ -138,7 +138,7 @@ For any python clients:
 Template in the PythonService folder.
 
 - `sudo apt-get install python-systemd`
-- Copy the whole folder to /home/pi/code/FolderName
+- Copy the whole folder to /home/pi/code/PythonService
 - Make a symlink to the service file: `ln -s ~/code/PythonService/service.service ~/.config/systemd/user/service.service`
 - If you want to start it on boot, enable it with `systemctl --user enable service.service`
 - Otherwise you can just start it with `systemctl --user start service.service`
