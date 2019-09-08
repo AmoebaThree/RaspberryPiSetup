@@ -126,9 +126,18 @@ def init(Line=False, IR=False, Motors=False, Servos=False):
 
 # cleanup(). Sets all motors off and sets GPIO to standard values
 def cleanup():
-    stop()
-    stopServos()
-    GPIO.cleanup()
+    try:
+        stop()
+    except:
+        print("Failed to stop")
+    try:
+        stopServos()
+    except:
+        print("Failed to stop servos")
+    try:
+        GPIO.cleanup()
+    except:
+        print("Failed gpio cleanup")
 
 # version(). Returns 1. Invalid until after init() has been called
 def version():
