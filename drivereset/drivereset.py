@@ -1,4 +1,4 @@
 import initio
-initio.init()
+initio.init(Motors=True)
 initio.stop()
 initio.cleanup()

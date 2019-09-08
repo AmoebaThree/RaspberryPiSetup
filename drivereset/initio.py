@@ -84,7 +84,7 @@ ServosActive = False
 # General Functions
 #
 # init(). Initialises GPIO pins, switches motors and LEDs Off, etc
-def init():
+def init(Line=False, IR=False, Motors=False, Servos=False):
     global p, q, a, b
 
     GPIO.setwarnings(False)
@@ -94,31 +94,35 @@ def init():
     #print GPIO.RPI_REVISION
 
     #set up digital line detectors as inputs
-    GPIO.setup(lineRight, GPIO.IN) # Right line sensor
-    GPIO.setup(lineLeft, GPIO.IN) # Left line sensor
+    if Line:
+        GPIO.setup(lineRight, GPIO.IN) # Right line sensor
+        GPIO.setup(lineLeft, GPIO.IN) # Left line sensor
 
     #Set up IR obstacle sensors as inputs
-    GPIO.setup(irFL, GPIO.IN) # Left obstacle sensor
-    GPIO.setup(irFR, GPIO.IN) # Right obstacle sensor
+    if IR:
+        GPIO.setup(irFL, GPIO.IN) # Left obstacle sensor
+        GPIO.setup(irFR, GPIO.IN) # Right obstacle sensor
 
     #use pwm on inputs so motors don't go too fast
-    GPIO.setup(L1, GPIO.OUT)
-    p = GPIO.PWM(L1, 20)
-    p.start(0)
+    if Motors:
+        GPIO.setup(L1, GPIO.OUT)
+        p = GPIO.PWM(L1, 20)
+        p.start(0)
 
-    GPIO.setup(L2, GPIO.OUT)
-    q = GPIO.PWM(L2, 20)
-    q.start(0)
+        GPIO.setup(L2, GPIO.OUT)
+        q = GPIO.PWM(L2, 20)
+        q.start(0)
 
-    GPIO.setup(R1, GPIO.OUT)
-    a = GPIO.PWM(R1, 20)
-    a.start(0)
+        GPIO.setup(R1, GPIO.OUT)
+        a = GPIO.PWM(R1, 20)
+        a.start(0)
 
-    GPIO.setup(R2, GPIO.OUT)
-    b = GPIO.PWM(R2, 20)
-    b.start(0)
+        GPIO.setup(R2, GPIO.OUT)
+        b = GPIO.PWM(R2, 20)
+        b.start(0)
 
-    startServos()
+    if Servos:
+        startServos()
 
 # cleanup(). Sets all motors off and sets GPIO to standard values
 def cleanup():
