@@ -77,13 +77,16 @@ The Pirocon board has an annoying habit of driving the wheels on the first time 
 - `mkdir ~/code/drivereset`
 - Put the contents of the `drivereset` directory in there, except `drivereset.service`
 - `cd ~/code/drivereset`
-- `wget -q http://4tronix.co.uk/initio/servod.xxx -O servod`
-- `chmod +x servod`
 - Put `drivereset/drivereset.service` in `~/.config/systemd/user/`
 - `sudo loginctl enable-linger pi`
 - `systemctl --user enable drivereset.service`
 
 [Guide](https://github.com/torfsen/python-systemd-tutorial)
+
+### Servod for initio (servo endpoints only)
+
+- `wget -q http://4tronix.co.uk/initio/servod.xxx -O servod`
+- `chmod +x servod`
 
 ### Infrared
 
