@@ -88,6 +88,12 @@ The Pirocon board has an annoying habit of driving the wheels on the first time 
 - `wget -q http://4tronix.co.uk/initio/servod.xxx -O servod`
 - `chmod +x servod`
 
+### PiFace
+
+- Enable SPI in `sudo raspi-config`
+- `pip install pifacedigitalio`
+- `pip install pifacecommon`
+
 ### Infrared
 
 https://help.ubuntu.com/community/LIRC
@@ -96,6 +102,14 @@ https://github.com/tompreston/python-lirc
 ### Bluetooth
 
 https://ubuntuforums.org/showthread.php?t=1332197
+
+### Raspberry Pi camera
+
+https://picamera.readthedocs.io/en/release-1.13/recipes1.html
+
+### Webcams
+
+https://www.raspberrypi.org/documentation/usage/webcams/
 
 # Software
 
