@@ -107,6 +107,8 @@ https://ubuntuforums.org/showthread.php?t=1332197
 
 https://picamera.readthedocs.io/en/release-1.13/recipes1.html
 
+The sensor itself has a native resolution of 5 megapixel, and has a fixed focus lens onboard. In terms of still images, the camera is capable of 2592 x 1944 pixel static images, and also supports 1080p @ 30fps, 720p @ 60fps and 640x480p 60/90 video recording.
+
 ### Webcams
 
 https://www.raspberrypi.org/documentation/usage/webcams/
