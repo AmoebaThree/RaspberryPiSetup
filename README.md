@@ -186,3 +186,4 @@ https://github.com/docker/buildx/issues/98
 https://github.com/docker/buildx
 https://www.slideshare.net/weaveworks/advanced-build-techniques-for-container-images-with-adrian-mouat
 https://pythonspeed.com/articles/base-image-python-docker-images/
+https://docs.docker.com/engine/reference/commandline/run/
