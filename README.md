@@ -182,3 +182,7 @@ https://collabnix.com/building-arm-based-docker-images-on-docker-desktop-made-po
 https://docs.docker.com/v17.09/engine/userguide/eng-image/dockerfile_best-practices/#run
 https://docs.docker.com/buildx/working-with-buildx/
 https://docs.docker.com/docker-for-mac/multi-arch/
+https://github.com/docker/buildx/issues/98
+https://github.com/docker/buildx
+https://www.slideshare.net/weaveworks/advanced-build-techniques-for-container-images-with-adrian-mouat
+https://pythonspeed.com/articles/base-image-python-docker-images/
