@@ -164,3 +164,21 @@ Template in the PythonService folder.
 - If you change the service file afterwards, you need to do `systemctl --user daemon-reload`
 
 Based on [this guide](https://github.com/torfsen/python-systemd-tutorial)
+
+# Docker / K8s
+
+Lots of useful docker / k8s links:
+
+https://dev.to/rohansawant/installing-docker-and-docker-compose-on-the-raspberry-pi-in-5-simple-steps-3mgl
+https://stackoverflow.com/questions/47202705/how-to-run-my-python-script-on-docker
+https://hub.docker.com/r/arm32v6/redis
+https://hub.docker.com/r/arm32v6/python
+https://stackoverflow.com/questions/30494050/how-do-i-pass-environment-variables-to-docker-containers
+https://runnable.com/docker/python/dockerize-your-python-application
+https://kubernetes.io/docs/tutorials/configuration/configure-redis-using-configmap/
+https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/
+https://stackoverflow.com/questions/48577544/how-to-connect-redis-cluster-from-application-in-kubernetes-cluster
+https://collabnix.com/building-arm-based-docker-images-on-docker-desktop-made-possible-using-buildx/
+https://docs.docker.com/v17.09/engine/userguide/eng-image/dockerfile_best-practices/#run
+https://docs.docker.com/buildx/working-with-buildx/
+https://docs.docker.com/docker-for-mac/multi-arch/
