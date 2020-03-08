@@ -165,6 +165,14 @@ Template in the PythonService folder.
 
 Based on [this guide](https://github.com/torfsen/python-systemd-tutorial)
 
+### Systemctl
+
+List services: systemctl --user list-unit-files
+
+Link into: ./config/systemd/user
+
+    ln -s ~/code/*.service ~/.config/systemd/user/*.service
+
 # Docker / K8s
 
 Lots of useful docker / k8s links:
