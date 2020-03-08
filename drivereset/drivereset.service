@@ -1,9 +1,0 @@
-[Unit]
-Description=Reset PiRoCon
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/python /home/pi/code/drivereset/drivereset.py
-
-[Install]
-WantedBy=default.target
