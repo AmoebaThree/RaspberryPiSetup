@@ -2,7 +2,7 @@
 Description=Demo
 
 [Service]
-ExecStart=/usr/bin/python /home/pi/code/PythonService/service.py
+ExecStart=/usr/bin/python /home/pi/zoidberg-deploy/PythonService/service.py
 Environment=PYTHONUNBUFFERED=1
 Restart=on-failure
 Type=notify
